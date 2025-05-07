@@ -13,17 +13,15 @@ export default function Navbar() {
   const name = "John Doe";
 
   // Theme toggle functionality
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState("dark");
 
-  // Fix for useLayoutEffect during SSR
+
   useEffect(() => {
-    // Get theme from localStorage on client-side only
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme) {
       setTheme(savedTheme);
       document.documentElement.classList.toggle("dark", savedTheme === "dark");
     } else {
-      // Check for system preference
       if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
         setTheme("dark");
         document.documentElement.classList.add("dark");
@@ -33,10 +31,9 @@ export default function Navbar() {
     }
   }, []);
 
-  // Handle theme changes
+
   useEffect(() => {
     if (typeof window !== "undefined") {
-      // Ensure we're on client-side
       localStorage.setItem("theme", theme);
       if (theme === "dark") {
         document.documentElement.classList.add("dark");
@@ -62,7 +59,7 @@ export default function Navbar() {
   return (
     <nav
       className={`${
-        theme === "dark" ? "bg-gray-900 text-white" : "bg-white text-gray-800"
+        theme === "dark" ? "bg-primary text-white" : "bg-white text-gray-800"
       } transition-colors duration-300 shadow-md`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -70,18 +67,14 @@ export default function Navbar() {
           {/* Logo */}
           <div className="">
             <Link href="/">
-              <div className="relative">
-                <div className="absolute font-semibold text-[16px] -top-5 color-variant1">
-                  Career
-                </div>
-                <div className="absolute font-semibold text-[16px] top-0 left-3 color-variant2">
-                  Connect
-                </div>
+              <div className="">
+                Career Connect
               </div>
             </Link>
                   </div>
           {/* Desktop Menu */}
-          <div className="hidden lg:flex space-x-6">
+          <div className="flex ">
+          <div className="hidden lg:flex mr-2">
             {menuItems.map((item) => (
               <Link
                 key={item.href}
@@ -97,7 +90,7 @@ export default function Navbar() {
             ))}
           </div>
           {/* Theme Toggle + User Profile */}
-          <div className="hidden lg:flex items-center space-x-4">
+          <div className="hidden lg:flex items-center">
             {/* Theme toggle button */}
             <div className="mr-4 ">
               <label className="switch">
@@ -134,7 +127,7 @@ export default function Navbar() {
               </Link>
             ) : (
               <Link href="/self-profile" className="flex items-center gap-2">
-                <div className="w-[36px] h-[36px] rounded-full bg-gray-200 overflow-hidden">
+                <div className="w-[30px] h-[30px] rounded-full overflow-hidden">
                   <img
                     className="h-full w-full object-cover"
                     src="user-profile.svg"
@@ -143,6 +136,7 @@ export default function Navbar() {
                 </div>
               </Link>
             )}
+          </div>
           </div>
 
           {/* Mobile Menu Button */}

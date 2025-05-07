@@ -1,25 +1,15 @@
 @import "tailwindcss";
 
 /* color variants */
-.color-variant1{
-  color:#93e8fb;
+.bg-primary{
+  background-color: #06002e;
 }
-.color-variant2{
-  color:#61eaca;
+.bg-gradient1{
+  background: linear-gradient(to right, #9d8cff, #beb0fa, #eaf7fc);
 }
-.bg-color-variant1{
-  background-color:#213448;
+.bg-gradient2{
+  background: linear-gradient(to right, #9d8cff, #beb0fa, #eaf7fc);
 }
-.color-variant4{
-  color:#547792;
-}
-.color-variant5{
-  color:#94B4C1;
-}
-.color-variant6{
-  color:#ECEFCA;
-}
-
 
 body {
   background: var(--background);
