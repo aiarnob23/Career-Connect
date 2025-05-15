@@ -2,10 +2,54 @@
 
 /* color variants */
 .bg-primary{
-  background-color: #06002e;
+  background-color: #06002E;
 }
-.bg-gradient1{
-  background: linear-gradient(to right, #9d8cff, #beb0fa, #eaf7fc);
+.text-primary{
+  color:#98d4f1;
+}
+.text-secondary{
+  color:#B0B8C1;
+}
+.btn-primary {
+  background: linear-gradient(135deg, #47EFF7, #648fe6, #A682F8);
+  border: none;
+  border-radius: 50px; 
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+}
+.btn-secondary {
+  background:#1c0d7e;
+  border: none;
+  border-radius: 50px; 
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.btn-secondary:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+}
+.bg-gradient1 {
+  background: linear-gradient(
+    to right,
+    #DCF3F5 1%,   
+    #47EFF7 20%,  
+    #2168F4 60%,  
+    #A682F8 100%  
+  );
 }
 .bg-gradient2{
   background: linear-gradient(to right, #9d8cff, #beb0fa, #eaf7fc);
@@ -14,5 +58,5 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-work-sans);
 }

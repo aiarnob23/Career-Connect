@@ -1,17 +1,29 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "../globals.css";
 import Navbar from "@/components/navbar/Navbar";
 import StoreProvider from "@/providers/StoreProvider";
+import { Work_Sans } from "next/font/google";
+import Footer from "@/components/footer/Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+// const roboto = Roboto({
+//   variable: "--font-roboto",
+//   subsets: ["latin"],
+//   weight: ["400", "500", "600", "700", "800", "900"],
+//   display: "swap",
+// });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+// const poppins = Poppins({
+//   variable: "--font-poppins",
+//   subsets: ["latin"],
+//   weight: ["400", "500", "600", "700", "800", "900"],
+//   display: "swap",
+// });
+
+const worksans = Work_Sans({
+  variable: "--font-work-sans",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -29,15 +41,16 @@ export default function RootLayout({
   return (
     <StoreProvider>
       <html lang="en">
-        <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased `}
-        >
+        <body className={`${worksans.variable} antialiased`}>
           <StoreProvider>
             <div>
               <div>
                 <Navbar />
               </div>
               <div>{children}</div>
+              <div>
+                <Footer/>
+              </div>
             </div>
           </StoreProvider>
         </body>
@@ -45,3 +58,5 @@ export default function RootLayout({
     </StoreProvider>
   );
 }
+
+
